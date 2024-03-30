@@ -18,7 +18,7 @@ const Contact = () => {
         <h4 className="text-4xl text-blue-900">Thank You!</h4>
         <h4 className="text-3xl text-center text-white">Your submission has been sent</h4>
         <button className="text-white px-7 py-3 rounded-md bg-red-600 hover:bg-orange-600 transition duration-300 ease-in-out">
-          <Link href="/contact-us">Contact Us</Link>
+          <Link href="/">Home</Link>
         </button>
       </div>
     );
