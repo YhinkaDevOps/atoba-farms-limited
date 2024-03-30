@@ -1,57 +1,89 @@
 "use client";
 import React from "react";
+import chickenicon from "../../public/assets/chicken-icon.png";
+import vegetablecrops from "../../public/assets/vegetable-crops.png";
+import butchericon from "../../public/assets/butcher-icon.png";
+import gardentrolley from "../../public/assets/garden-trolley.png";
+import distribution from "../../public/assets/distribution.png";
+import Image from "next/image";
 // import { motion } from "framer-motion";
 
 const Services = () => {
   return (
-    <div className="min-h-[300px] mx-auto py-12 flex flex-col">
+    <div className="min-h-[300px] mx-auto py-16 flex flex-col">
       <div className="px-4 lg:px-0">
-        <h6 className="text-center mb-5 text-2xl">
-          WELCOME TO RENA AGRICULTURAL SERVICES
+        <h6 className="text-center text-2xl service-header text-[#cc1c10]">
+          WHAT WE DO
         </h6>
-        <p className="text-center lg:mx-[200px] mb-10">
-          Situated in Ibadan, Oyo State, Rena Agricultural Services is a leading food processing
-          company specializing in the transformation of live broiler chicken
-          into premium frozen chicken meat. Within our state-of-the-art factory
-          and offices, we collaborate closely with multiple local live bird
-          farmers. This partnership ensures the delivery of high-quality
-          products and services, reflecting our commitment to excellence in
-          every step of the process.
-        </p>
 
-        <h6 className="text-center text-3xl">WHAT WE DO</h6>
+        <h5 className="service-phrase text-center mt-5 text-4xl text-[#000000]">
+          Transitioning from Poultry to Agro-Industrialization
+        </h5>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mx-auto max-w-[1000px] p-2 mt-5 ">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mx-auto max-w-[1000px] p-2 mt-5">
           <div className="flex flex-col gap-3 items-center">
-            <p className="font-bold text-[20px]">Chicken Processing</p>
-            <p className="text-[#8f8f8f]  text-center">
-              Embark on a culinary journey with our Chicken Processing services,
-              where farm-fresh broiler chickens are transformed into a
-              harmonious symphony of flavors.
-            </p>
+            <span className="rounded bg-[#00ce1b]">
+              <Image
+                src={chickenicon}
+                width={100}
+                height={100}
+                alt="chicken-icon"
+              />
+            </span>
+            <p className="text-sm">Animal production</p>
           </div>
           <div className="flex flex-col gap-3 items-center">
-            <p className="font-bold text-[20px]">Flavorful Preservations</p>
-            <p className="text-[#8f8f8f] text-center">
-              From our hands to your plate, enjoy meat that is not just
-              preserved but perfected.
-            </p>
+            <span className="rounded bg-[#00ce1b]">
+              <Image
+                src={vegetablecrops}
+                width={100}
+                height={100}
+                alt="vegetable-crops"
+              />
+            </span>
+            <p className="text-sm">Crop production</p>
           </div>
           <div className="flex flex-col gap-3 items-center">
-            <p className="font-bold text-[20px]">Elegant Packaging</p>
-            <p className="text-[#8f8f8f]  text-center">
-              Elegance in Every Package: Immerse yourself in the art of
-              presentation with our thoughtfully designed packaging.
-            </p>
+            <span className="rounded bg-[#00ce1b]">
+              <Image
+                src={butchericon}
+                width={100}
+                height={100}
+                alt="butcher-service"
+              />
+            </span>
+            <p className="text-sm">Butcher</p>
           </div>
           <div className="flex flex-col gap-3 items-center">
-            <p className="font-bold text-[20px]">Precision Butchering</p>
-            <p className="text-[#8f8f8f]  text-center">
-              Our skilled butchers ensure each cut is made with precision,
-              delivering top-notch meat products.
-            </p>
+            <span className="rounded bg-[#00ce1b]">
+              <Image
+                src={gardentrolley}
+                width={100}
+                height={100}
+                alt="garden-trolley"
+              />
+            </span>
+            <p className="text-sm">Farm management</p>
+          </div>
+          <div className="flex flex-col gap-3 items-center">
+            <span className="rounded bg-[#00ce1b]">
+              <Image
+                src={distribution}
+                width={100}
+                height={100}
+                alt="distribution"
+              />
+            </span>
+            <p className="text-sm">Sales & Distribution</p>
           </div>
         </div>
+
+        <h3 className="service-phrase text-[#000000] max-w-[1000px] mx-auto text-center mt-8">
+          Discover superior poultry products alongside chicken, beef, and eggs
+          for discerning consumers. For our agricultural partners, we specialize
+          in crop production services, sales, distribution, butchering, and farm
+          management.
+        </h3>
       </div>
     </div>
   );

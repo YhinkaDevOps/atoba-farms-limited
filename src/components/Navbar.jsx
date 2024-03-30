@@ -12,12 +12,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar w-full fixed z-50 bg-white md:px-[20px] lg:px-[50px] xl:px-[120px]">
-      <div className="mx-auto py-4 px-2 md:pb-8 md:pt-2">
+      <div className="mx-auto py-4 px-2  md:pt-2">
         <div className="flex justify-between items-end">
           <Link href="/">
             <button className="hover:opacity-70 flex items-center flex-shrink-0">
               <Image
-                src="/assets/navigation_logo.png"
+                src="/assets/atoba-farms-logo.png"
                 width={100}
                 height={65}
                 alt="header-logo"
@@ -26,7 +26,7 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden md:block">
-            <ul className="nav-list flex gap-x-9 items-center text-base">
+            <ul className="nav-list flex gap-x-9 items-center text-base py-4">
               <li className=" text-black font-medium text-sm hover:text-[#900C3F]">
                 <Link className="capitalize" href="/">
                   HOME
