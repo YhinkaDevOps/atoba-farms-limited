@@ -7,6 +7,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playball&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playball&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playball&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -30,11 +31,11 @@
   color: white;
   font-weight: bold;
   position: absolute;
-  top: 10%;
+  top: 7%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 80%;
+  width: 60%;
   padding: 20px;
   text-align: center;
   font-family: "Lato", sans-serif;
@@ -47,7 +48,7 @@
     color: white;
     font-weight: bold;
     position: absolute;
-    top: 7%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -69,8 +70,19 @@
 
 .service-phrase {
   font-family: "Roboto", sans-serif;
+}
+
+.about-font {
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.testimonials-bg{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://www.bofarmsltd.com/media/home-slider/slide-2.jpg");
+  background-size: cover;
+  background-position: center;  
 }
 
 /* Products styling */
@@ -80,7 +92,7 @@
 .mission-bg,
 .contact-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://taghini.com/wp-content/uploads/2019/09/slide-3.jpg");
+    url("https://www.bofarmsltd.com/media/home-slider/slide-2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -111,4 +123,24 @@
   width: 100%;
   aspect-ratio: 1.2;
   object-fit: cover;
+}
+
+input, textarea{
+ width: 100%;
+ padding: 10px;
+ outline: none;
+ border: 1px solid black;
+ background: transparent;
+ border-radius: 5px;
+ font-size: 15px;
+}
+
+.input-group{
+  position: relative;
+}
+
+label{
+  padding-bottom: 5px;
+  transition: 0.2s;
+  cursor: text;
 }

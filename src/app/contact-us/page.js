@@ -1,69 +1,30 @@
 "use client";
 import React, { useState } from "react";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Input,
-  Textarea,
-  Button,
-  Text,
-  useToast,
-} from "@chakra-ui/react";
-import { sendContactForm } from "../../../lib/api";
+import { useForm, ValidationError } from "@formspree/react";
+import emailsent from "../../../public/assets/email-sent.gif";
+import Image from "next/image";
 import Link from "next/link";
 
-const initValues = { name: "", email: "", subject: "", message: "" };
-const initState = { values: initValues };
 
 const Contact = () => {
-  const toast = useToast();
 
-  const [state, setState] = useState(initState);
-
-  const [touched, setTouched] = useState({});
-
-  const { values, isLoading, error } = state;
-
-  const onBlur = ({ target }) =>
-    setTouched((prev) => ({ ...prev, [target.name]: true }));
-
-  const handleChange = ({ target }) =>
-    setState((prev) => ({
-      ...prev,
-      values: {
-        ...prev.values,
-        [target.name]: target.value,
-      },
-    }));
-
-  const onSubmit = async () => {
-    setState((prev) => ({
-      ...prev,
-      isLoading: true,
-    }));
-    try {
-      await sendContactForm(values);
-      setTouched({});
-      setState(initState);
-      toast({
-        title: "Message sent.",
-        status: "success",
-        duration: 2000,
-        position: "top",
-        isClosable: true,
-      });
-    } catch (error) {
-      setState((prev) => ({
-        ...prev,
-        isLoading: false,
-        error: error.message,
-      }));
-    }
-  };
-
+  const [state, handleSubmit] = useForm("mrgnyavo");
+  if (state.succeeded) {
+    return (
+      <div className="products-bg service-header contact-form-bg font-bold flex flex-col gap-5 justify-center items-center min-h-[600px] md:min-h-screen">
+        <span className="rounded">
+          <Image src={emailsent} width={100} height={100} alt="email" />
+        </span>
+        <h4 className="text-4xl text-blue-900">Thank You!</h4>
+        <h4 className="text-3xl text-center text-white">Your submission has been sent</h4>
+        <button className="text-white px-7 py-3 rounded-md bg-red-600 hover:bg-orange-600 transition duration-300 ease-in-out">
+          <Link href="/contact-us">Contact Us</Link>
+        </button>
+      </div>
+    );
+  }
   return (
-    <div className="min-h-screen pt-[100px]">
+    <div className="min-h-screen pt-[79px]">
       <div className="contact-bg text-white bg-[#f6f6f6] py-12 px-4 md:py-16 lg:px-[50px] xl:px-[120px] flex flex-col gap-3 ">
         <h6 className="text-2xl font-semibold px-2">CONTACT US</h6>
         <span className="flex gap-x-3 text-sm items-center px-2">
@@ -76,116 +37,61 @@ const Contact = () => {
       {/* Contact Container */}
       <div className="mx-auto max-w-[1099px] my-10 px-4 md:px-0 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-4">
         <div className="contact-form border shadow-lg shadow-[rgb(4,12,22)] container rounded-md p-7 order-last">
-          <FormControl
-            isRequired
-            isInvalid={touched.name && !values.name}
-            mb={5}
-          >
-            <FormLabel>Name</FormLabel>
-            <Input
-              type="text"
-              errorBorderColor="red.300"
-              name="name"
-              value={values.name}
-              onChange={handleChange}
-              onBlur={onBlur}
-            />
-            <FormErrorMessage>Required</FormErrorMessage>
-          </FormControl>
+          <form onSubmit={handleSubmit} className="flex flex-col">
+            <div className="input-group mb-7">
+              <label htmlFor="name">Name</label>
+              <input id="name" type="name" name="name" required />
+            </div>
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
 
-          <FormControl
-            isRequired
-            isInvalid={touched.email && !values.email}
-            mb={5}
-          >
-            <FormLabel>Email</FormLabel>
-            <Input
-              type="email"
-              name="email"
-              errorBorderColor="red.300"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={onBlur}
+            <div className="input-group mb-7">
+              <label htmlFor="email">Email Address</label>
+              <input id="email" type="email" name="email" required />
+            </div>
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
             />
-            <FormErrorMessage>Required</FormErrorMessage>
-          </FormControl>
+            <div className="input-group mb-7">
+              <label htmlFor="message">Message</label>
+              <textarea id="message" name="message" required rows={5} />
+            </div>
 
-          <FormControl
-            isRequired
-            mb={5}
-            isInvalid={touched.subject && !values.subject}
-          >
-            <FormLabel>Subject</FormLabel>
-            <Input
-              type="text"
-              name="subject"
-              errorBorderColor="red.300"
-              value={values.subject}
-              onChange={handleChange}
-              onBlur={onBlur}
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
             />
-            <FormErrorMessage>Required</FormErrorMessage>
-          </FormControl>
-
-          <FormControl
-            isRequired
-            mb={5}
-            isInvalid={touched.message && !values.message}
-          >
-            <FormLabel>Message</FormLabel>
-            <Textarea
-              type="text"
-              name="message"
-              errorBorderColor="red.300"
-              rows={4}
-              value={values.message}
-              onChange={handleChange}
-              onBlur={onBlur}
-            />
-            <FormErrorMessage>Required</FormErrorMessage>
-          </FormControl>
-          <div className="text-center">
-            {error && (
-              <Text color="red.500" my={4} fontSize="lg">
-                {error}
-              </Text>
-            )}
-          </div>
-          <div className="mx-auto text-center">
-            <Button
-              isDisabled={
-                !values.name ||
-                !values.email ||
-                !values.subject ||
-                !values.message
-              }
-              px={10}
-              colorScheme="red"
-              isLoading={isLoading}
-              onClick={onSubmit}
+            <button
+              className="px-7 py-3 rounded-md border-[1px] border-[#000000] hover:bg-orange-600 hover:text-white transition duration-300 ease-in-out"
+              type="submit"
+              disabled={state.submitting}
+              // onClick={notify}
             >
-              Send
-            </Button>
-          </div>
+              SUBMIT
+            </button>
+            {/* <ToastContainer /> */}
+          </form>
         </div>
         <div className="contact-form border shadow-lg shadow-[rgb(4,12,22)] flex flex-col gap-2 p-7">
-          <h3 className="text-[#444444] text-2xl font-semibold">Visit Us</h3>
+          <h3 className="text-[#000000] text-2xl font-semibold">Visit Us</h3>
           <div>
-            <p>Rena Agricultural Services Ltd</p>
-            <p>Plot 12D Oyinbo Eleja Close</p>
-            <p>Akingbile, Ibadan</p>
-            <p>Oyo, Nigeria</p>
+            <p>Ikanna Oluwo Village</p>
+            <p>Ajura, Obafemi Owode LGA</p>
+            <p>Ogun State</p>
+            <p>Nigeria</p>
           </div>
 
-          <h3 className="text-[#444444] text-2xl font-semibold">Phone Us</h3>
+          <h3 className="text-[#000000]] text-2xl font-semibold">Phone Us</h3>
           <div>
             <p>Customer Service:</p>
-            <p>08033520427</p>
+            <p>08023049030</p>
           </div>
 
-          <h3 className="text-[#444444] text-2xl font-semibold">Email Us</h3>
+          <h3 className="text-[#000000] text-2xl font-semibold">Email Us</h3>
           <div>
-            <p>renaagric@gmail.com</p>
+            <p>atobafarmsltd@gmail.com</p>
           </div>
         </div>
       </div>

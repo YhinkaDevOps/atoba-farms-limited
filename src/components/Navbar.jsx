@@ -47,9 +47,9 @@ const Navbar = () => {
           <div className="flex items-center p-2 rounded-md focus:outline-none md:hidden border-2 border-[#7CFC00]">
             <button onClick={handleClick}>
               {isClick ? (
-                <FaTimes color="#900C3F" size={30} />
+                <FaTimes color="#222222" size={30} />
               ) : (
-                <FaBars color="#900C3F" size={30} />
+                <FaBars color="#222222" size={30} />
               )}
             </button>
           </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
 
       <div>
         {isClick && (
-          <div className="bg-[#900C3F] md:hidden">
+          <div className="bg-[#222222] md:hidden">
             <div className="px-2 pt-2 pb-2 space-y-1 sm:px-3">
               <ul className="list-none space-y-2">
                 <li className="text-white hover:bg-white font-medium hover:text-black rounded-lg p-2">
