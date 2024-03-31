@@ -52,12 +52,13 @@ const WhyUS = () => {
             </div>
             <div className="flex gap-3">
               <div className="rounded inline-block">
-                <Image src={ball} width={100} height={50} alt="sun-gif" />
+                <Image src={ball} width={130} height={50} alt="sun-gif" />
               </div>
               <div className="flex flex-col gap-3">
                 <h5 className="font-bold text-lg">Crop production</h5>
                 <p className="text-justify text-sm">
-                  We prioritize the rapid production of various animal products.
+                  We prioritize quality in every aspect of our crop production
+                  process, from seed selection to harvest.
                 </p>
               </div>
             </div>

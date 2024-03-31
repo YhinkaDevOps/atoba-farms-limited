@@ -6,7 +6,7 @@ import butchericon from "../../public/assets/butcher-icon.png";
 import gardentrolley from "../../public/assets/garden-trolley.png";
 import distribution from "../../public/assets/distribution.png";
 import Image from "next/image";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Services = () => {
   return (
@@ -21,7 +21,11 @@ const Services = () => {
         </h5>
 
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mx-auto max-w-[1000px] md:p-2 mt-5">
-          <div className="flex flex-col gap-3 items-center">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex flex-col gap-3 items-center"
+          >
             <span className="rounded bg-[#00ce1b] p-3">
               <Image
                 src={chickenicon}
@@ -31,8 +35,12 @@ const Services = () => {
               />
             </span>
             <p className="text-sm">Animal production</p>
-          </div>
-          <div className="flex flex-col gap-3 items-center">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex flex-col gap-3 items-center"
+          >
             <span className="rounded bg-[#00ce1b] p-3">
               <Image
                 src={vegetablecrops}
@@ -42,8 +50,12 @@ const Services = () => {
               />
             </span>
             <p className="text-sm">Crop production</p>
-          </div>
-          <div className="flex flex-col gap-3 items-center">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex flex-col gap-3 items-center"
+          >
             <span className="rounded bg-[#00ce1b] p-3">
               <Image
                 src={butchericon}
@@ -53,8 +65,12 @@ const Services = () => {
               />
             </span>
             <p className="text-sm">Butcher</p>
-          </div>
-          <div className="flex flex-col gap-3 items-center">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex flex-col gap-3 items-center"
+          >
             <span className="rounded bg-[#00ce1b] p-3">
               <Image
                 src={gardentrolley}
@@ -64,8 +80,12 @@ const Services = () => {
               />
             </span>
             <p className="text-sm">Farm management</p>
-          </div>
-          <div className="flex flex-col gap-3 items-center">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex flex-col gap-3 items-center"
+          >
             <span className="rounded bg-[#00ce1b] p-3">
               <Image
                 src={distribution}
@@ -75,14 +95,14 @@ const Services = () => {
               />
             </span>
             <p className="text-sm">Sales & Distribution</p>
-          </div>
+          </motion.div>
         </div>
 
         <h3 className="service-phrase text-[#000000] max-w-[1000px] mx-auto text-center mt-8">
           Discover superior poultry products alongside chicken, beef, and eggs
           for discerning consumers. For our agricultural partners, we specialize
-          in crop production services, sales & distribution, butchering, and farm
-          management.
+          in crop production services, sales & distribution, butchering, and
+          farm management.
         </h3>
       </div>
     </div>

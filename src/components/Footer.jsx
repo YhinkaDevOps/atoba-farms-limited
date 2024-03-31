@@ -26,7 +26,11 @@ const Footer = () => {
               Contact Us
             </button>
           </Link>
-          <span className="text-sm">Phone: +(234) 08023049030 - enquiry</span>
+          <span className="text-sm">
+            Phone: +(234) 08023049030 - enquiry <br />{" "}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+(234)
+            08030799930
+          </span>
           <span className="text-sm">
             <p>Email: atobafarmsltd@gmail.com</p>
           </span>
@@ -40,7 +44,6 @@ const Footer = () => {
           Atoba Farms Limited is registered as a limited liability company with
           the Nigerian Corporate Affairs Commission.
         </span>
-       
       </div>
     </div>
   );
