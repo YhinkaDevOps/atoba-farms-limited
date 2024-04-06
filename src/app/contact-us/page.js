@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Contact = () => {
 
-  const [state, handleSubmit] = useForm("mrgnyavo");
+  const [state, handleSubmit] = useForm("xpzvowae");
   if (state.succeeded) {
     return (
       <div className="products-bg service-header contact-form-bg font-bold flex flex-col gap-5 justify-center items-center min-h-[600px] md:min-h-screen">
