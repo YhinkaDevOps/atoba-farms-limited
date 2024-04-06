@@ -38,6 +38,15 @@ const Footer = () => {
             Address: Ikanna Oluwo Village Ajura, Obafemi Owode, LGA, Ogun State,
             Nigeria
           </span>
+
+          <span className="text-sm">
+            Farm Site II: Tisiye Village, along Osun Road Ijebu Igbo, Ogun
+            State, Nigeria
+          </span>
+
+          <span className="text-sm">
+            Administrative Address: 24, Adeniyi Street, Itire, Lagos, Nigeria
+          </span>
         </div>
 
         <span className="text-sm">
