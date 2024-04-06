@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
   return (
     <div className=" min-h-[200px] bg-[#222222] text-white px-4 py-10 md:py-16 border-dashed border-b-[1px] border-b-white">
-      <div className="mx-auto max-w-[1100px] grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 ">
+      <div className="mx-auto max-w-[1100px] grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-8 ">
         <div className="flex flex-col gap-2">
           <span className="hover:opacity-70 flex items-center flex-shrink-0">
             <Image
@@ -48,7 +49,16 @@ const Footer = () => {
             Administrative Address: 24, Adeniyi Street, Itire, Lagos, Nigeria
           </span>
         </div>
-
+        <div className="pt-2 flex flex-col gap-2">
+          <h1 className="font-bold">Connect With Us</h1>
+          <div className="flex flex-row gap-3">
+            <button className="hover:opacity-70">
+              <Link href="https://www.linkedin.com/in/atoba-farms-bb0b23302/">
+                <FaLinkedin size={30} />
+              </Link>
+            </button>
+          </div>
+        </div>
         <span className="text-sm">
           Atoba Farms Limited is registered as a limited liability company with
           the Nigerian Corporate Affairs Commission.
