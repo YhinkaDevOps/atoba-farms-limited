@@ -53,7 +53,7 @@ const Footer = () => {
           <h1 className="font-bold">Connect With Us</h1>
           <div className="flex flex-row gap-3">
             <button className="hover:opacity-70">
-              <Link href="https://www.linkedin.com/in/atoba-farms-bb0b23302/">
+              <Link href="https://www.linkedin.com/in/atoba-farms-0b4a19302/">
                 <FaLinkedin size={30} />
               </Link>
             </button>
